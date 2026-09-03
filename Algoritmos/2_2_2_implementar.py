@@ -49,10 +49,12 @@ class MaxMinSearch:
         else:
             return MaxMinSearch.min_value(game, state)
 
-# ============================================================
-# 1. Implemente la función que juega en base a un jugador dado (MAX o MIN)
-# ============================================================
+#----------------------------------------
 
+# ============================================================
+# 2. Represente el espacio de búsqueda de ejemplo
+# use como referencia el modelado del punto A
+# ============================================================
 class TreeGame(Game):
     def __init__(self, initial_state, players, nodes):
         super().__init__(initial_state, players )
@@ -95,6 +97,9 @@ class TreeGame(Game):
     def utility(self, state, player):
         return float(state)
 
+# ============================================================
+# 1. Implemente la función que juega en base a un jugador dado (MAX o MIN)
+# ============================================================
 
 def play_game(game, player):
     state = game.initial_state
@@ -115,6 +120,11 @@ def play_game(game, player):
 
     return steps
 
+# ============================================================
+# 3. Use la implementación del algoritmo de búsqueda min-max
+# aplicándola al estado inicial del espacio de búsqueda ejemplo
+# ============================================================
+
 nodes = {
     "A": ["B", "C", "D"],
     "B": ["E", "F", "G"],
@@ -130,6 +140,11 @@ nodes = {
     "L": [9, 7, 2],
     "M": [16, 6, 4],
 }
+
+# ============================================================
+# 4. Use la función `play_game` para jugar como MAX
+# mostrando la secuencia de acciones y la utilidad final
+# ============================================================
 
 game = TreeGame(
     initial_state = "A",
